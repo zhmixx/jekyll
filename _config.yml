@@ -22,7 +22,7 @@ kramdown:
 theme: minima
 
 minima:
-  skin: solarized
+  skin: auto
 
 plugins:
   - jekyll-feed
