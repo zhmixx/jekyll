@@ -9,7 +9,6 @@ author:
 social:
   github: zhmixx
 
-
 permalink: /:year/:month/:title/
 
 markdown: kramdown
