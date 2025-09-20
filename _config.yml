@@ -71,3 +71,5 @@ jekyll-archives:
   permalinks:
     category: '/category/:name/'
     tag: '/tag/:name/'
+
+header-pages: []
