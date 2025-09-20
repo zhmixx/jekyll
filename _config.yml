@@ -1,70 +1,76 @@
-source              : ./content
-destination         : ./_site
-collections_dir     : ./collections
-plugins_dir         : _plugins # takes an array of strings and loads plugins in that order
-layouts_dir         : _layouts
-data_dir            : _data
-includes_dir        : _includes
-sass:
-  sass_dir: _sass
-collections:
-  posts:
-    output          : true
+# Site settings
+title: "yawr!!"
+description: "yawr!! - sudo apt-get install opsec"
+url: "https://yawr.zhmixx.ru"
 
-# Handling Reading
-safe                : false
-include             : [".htaccess"]
-exclude             : ["Gemfile", "Gemfile.lock", "node_modules", "vendor/bundle/", "vendor/cache/", "vendor/gems/", "vendor/ruby/"]
-keep_files          : [".git", ".svn"]
-encoding            : "utf-8"
-markdown_ext        : "markdown,mkdown,mkdn,mkd,md"
-strict_front_matter : false
+author:
+  name: "zhmixx"
+  email: "me@zhmixx.ru"
 
-# Filtering Content
-show_drafts         : null
-limit_posts         : 0
-future              : false
-unpublished         : false
+social:
+  github: zhmixx
+
+
+permalink: /:year/:month/:title/
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    line_numbers: true
+
+theme: minima
+
+minima:
+  skin: solarized
 
 # Plugins
-whitelist           : []
-plugins             : []
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-archives
 
-# Conversion
-markdown            : kramdown
-highlighter         : rouge
-lsi                 : false
-excerpt_separator   : "\n\n"
-incremental         : false
+paginate: 5
+paginate_path: "/page:num/"
 
-# Serving
-detach              : false
-port                : 4000
-host                : 127.0.0.1
-baseurl             : "yawr.zhmixx.ru" # does not include hostname
-show_dir_listing    : false
+sass:
+  style: compressed
 
-# Outputting
-permalink           : date
-paginate_path       : /page:num
-timezone            : null
+timezone: UTC
 
-quiet               : false
-verbose             : false
-defaults            : []
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md
 
-liquid:
-  error_mode        : warn
-  strict_filters    : false
-  strict_variables  : false
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "zhmixx"
+      comments: true
+      share: true
 
-# Markdown Processors
-kramdown:
-  auto_ids          : true
-  entity_output     : as_char
-  toc_levels        : [1, 2, 3, 4, 5, 6]
-  smart_quotes      : lsquo,rsquo,ldquo,rdquo
-  input             : GFM
-  hard_wrap         : false
-  footnote_nr       : 1
-  show_warnings     : false
+collections:
+  unretus:
+    output: true
+    permalink: /unretus/:path/
+
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layouts:
+    category: archive
+    tag: archive
+  permalinks:
+    category: '/category/:name/'
+    tag: '/tag/:name/'
