@@ -73,5 +73,5 @@ jekyll-archives:
     tag: '/tag/:name/'
 
 header_pages:
-  tag
-  category
+  tag.md
+  category.md
